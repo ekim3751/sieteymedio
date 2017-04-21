@@ -1,9 +1,3 @@
-/* *************************************
-   Ricardo Salazar, February 26, 2015
-
-   Interface of a simple Card class
-   ************************************* */
-
 #include <string>
 #include <vector>
 #include <fstream>
@@ -34,12 +28,6 @@ class Card {
       // Accessors 
       string get_spanish_suit() const;
       string get_spanish_rank() const; 
-
-      /* 
-         These are the only functions you'll need to code 
-         for this class. See the implementations of the two 
-	 functions above to get an idea of how to proceed.
-      */
       string get_english_suit() const;
       string get_english_rank() const; 
 
@@ -62,10 +50,14 @@ class Hand {
    public:
       // A vector of Cards
       Hand();
-
+      void drawCard();
+      void newHand();
+      double sumHand();
+      void getHand(ostream& os);
       // You decide what functions you'll need...
 
    private:
+      vector<Card> foot;
       // You decide what fields you'll need...
 };
 
@@ -75,9 +67,10 @@ class Player {
       // Constructor. 
       //    Assigns initial amount of money
       Player(int m);
-
+      
       // You decide what functions you'll need...
-
+      int getMoney();
+      void newMoney(int bet, bool win);
    private:
       int money;
       // You decide what extra fields (if any) you'll need...
