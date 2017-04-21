@@ -184,7 +184,28 @@ bool Card::operator < (Card card2) const {
    Hand class
    ************************************************* */
 // Implemente the member functions of the Hand class here.
-
+Hand::Hand(){}
+void Hand::drawCard(){
+   Card c;
+   foot.push_back(c);
+}
+void Hand::newHand(){
+   foot.clear();
+}
+double Hand::sumHand(){
+   double count = 0;
+   for(int i = 0; i < foot.size(); ++i){
+	double r = foot[i].get_rank();
+   	if(r == 10 || r == 11 || r == 12){r = 0.5;}
+	count += r;
+   }
+   return count;
+}
+void Hand::getHand(ostream& os)const{
+   for(int i = 0; i < foot.size(); ++i){
+     os << "\t" << foot[i].get_spanish_rank() << " de " << foot[i].get_spanish_suit() << "\t" << "(" << foot[i].get_english_rank() << " of " << foot[i].get_english_suit() << "\n";
+   }
+}
 
 
 /* *************************************************
