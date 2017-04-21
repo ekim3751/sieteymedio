@@ -212,3 +212,16 @@ void Hand::getHand(ostream& os)const{
    Player class
    ************************************************* */
 // Implemente the member functions of the Player class here.
+Player::Player(int m){
+   money = m;
+}
+int Player::getMoney(){
+   return money;
+}
+void Player::newMoney(int bet, bool win){
+   if(win == true){
+	money += bet;
+   } else {
+	money -= bet;
+   }
+}
